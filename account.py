@@ -2,7 +2,7 @@ class Account:
 
     def __init__(self, name):
 
-        self.__account_name = None
+        self.__account_name = name
         self.__account_balance = 0
 
     def deposit(self, amount):
@@ -11,7 +11,7 @@ class Account:
         :param amount: amount
         :return: True
         '''
-        if amount != 0 and amount.isPositive():
+        if amount != 0 and amount > 0:
             self.__account_balance += amount
         else:
             return False
@@ -21,7 +21,7 @@ class Account:
         :param amount: amount
         :return: True
         '''
-        if amount != 0 and amount.isPositive() and amount <= self.__account_balance:
+        if amount != 0 and 0 < amount <= self.__account_balance:
             self.__account_balance -= amount
         else:
             return False
@@ -31,4 +31,3 @@ class Account:
 
     def get_name(self):
         return self.__account_name
-
